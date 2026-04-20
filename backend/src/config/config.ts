@@ -1,0 +1,24 @@
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+export const isDevelopment = process.env.NODE_ENV === 'development';
+
+const config = {
+  baseurl: 'https://aniwatchtv.to',
+  baseurl2: 'https://aniwatchtv.to',
+  origin: '*',
+  port: Number(process.env.PORT) || 5000,
+
+  headers: {
+    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0',
+  },
+
+  logLevel: 'INFO',
+  enableLogging: isDevelopment,
+  isProduction: !isDevelopment,
+  isDevelopment,
+  isVercel: false,
+};
+
+export default config;
