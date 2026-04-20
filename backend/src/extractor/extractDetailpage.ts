@@ -1,6 +1,6 @@
 import { load } from 'cheerio';
 import { Element } from 'domhandler';
-import { DetailAnime, AnimeFeatured, Season } from '../types/anime';
+import { DetailAnime, AnimeFeatured, Season } from '../../../shared/types/anime';
 
 export const extractDetailpage = (html: string): DetailAnime => {
   const $ = load(html);

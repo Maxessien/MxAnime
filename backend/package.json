@@ -5,14 +5,13 @@
   "scripts": {
     "dev": "tsx index.ts",
     "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "node dist/backend/index.js"
   },
   "dependencies": {
     "@hono/node-server": "^1.8.2",
     "axios": "^1.13.6",
     "cheerio": "^1.0.0-rc.12",
-    "dotenv": "^17.4.2",
-    "tsc": "^2.0.4"
+    "dotenv": "^17.4.2"
   },
   "devDependencies": {
     "@types/axios": "^0.14.4",

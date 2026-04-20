@@ -1,7 +1,7 @@
 import { axiosInstance } from '../services/axiosInstance';
 import { validationError } from '../utils/errors';
 import { extractHomepage } from '../extractor/extractHomepage';
-import { HomePage } from '../types/anime';
+import { HomePage } from '../../../shared/types/anime';
 
 const homepageController = async (): Promise<HomePage> => {
   console.log('Fetching homepage data from external API...');

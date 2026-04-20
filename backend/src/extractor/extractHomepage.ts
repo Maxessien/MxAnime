@@ -1,6 +1,6 @@
 import { load } from 'cheerio';
 import { Element } from 'domhandler';
-import { HomePage, SpotlightAnime, TrendingAnime, AnimeFeatured } from '../types/anime';
+import { HomePage, SpotlightAnime, TrendingAnime, AnimeFeatured } from '../../../shared/types/anime';
 
 export const extractHomepage = (html: string): HomePage => {
   const $ = load(html);
