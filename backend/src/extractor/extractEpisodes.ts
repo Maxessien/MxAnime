@@ -9,10 +9,21 @@ export interface Episode {
 }
 
 export const extractEpisodes = (html: string): Episode[] => {
-  const $ = load(html);
+  let parsedHtml = html;
+  try {
+    const json = JSON.parse(html);
+    if (json.html) {
+      parsedHtml = json.html;
+    }
+  } catch (e) {
+    // Fallback if it's already raw HTML
+  }
+
+  const $ = load(parsedHtml);
 
   const response: Episode[] = [];
-  $('.ssl-item.ep-item').each((i, el) => {
+  const selected = $('.ssl-item.ep-item')
+  selected.each((i, el) => {
     const obj: Episode = {
       title: null,
       alternativeTitle: null,
@@ -25,7 +36,6 @@ export const extractEpisodes = (html: string): Episode[] => {
     obj.isFiller = $(el).hasClass('ssl-item-filler');
 
     obj.alternativeTitle = $(el).find('.ep-name.e-dynamic-name').attr('data-jname') || null;
-
     response.push(obj);
   });
   return response;
